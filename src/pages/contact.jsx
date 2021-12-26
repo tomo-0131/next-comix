@@ -11,7 +11,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 
-export default function About() {
+export default function Contact() {
   return (
     <Center py={6}>
       <Box
