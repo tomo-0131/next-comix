@@ -1,0 +1,43 @@
+$breakpoints: (
+  'tab': 767px,
+  'pc': 1024px,
+);
+
+@mixin mq($size) {
+  @media screen and (min-width: #{map-get($breakpoints, $size)}) {
+    @content;
+  }
+}
+@mixin imageResponsive {
+  > div {
+    position: unset !important;
+  }
+  img {
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+  }
+}
+@mixin imageResponsiveFirst {
+  > div:first-of-type {
+    position: unset !important;
+  }
+  img {
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+  }
+}
+@mixin backgroundImageCenter($url) {
+  content: '';
+  position: absolute;
+  background-image: url($url);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+$innerPadding: 5%;
+$innerWidhSp: 90%;
