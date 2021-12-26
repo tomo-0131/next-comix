@@ -1,35 +1,78 @@
 @import '../var';
-
+.link {
+  text-decoration: none;
+}
 .index {
+  &Bg {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(241, 247, 248) !important;
+    height: 100%;
+    @include mq(pc) {
+      background-color: rgb(241, 247, 248);
+    }
+  }
+  &Image {
+    position: relative;
+    margin: 0 auto;
+    @include mq(pc) {
+      position: relative;
+      margin: 0 auto;
+    }
+  }
   &Input {
+    position: inherit;
     display: inline;
     margin-top: 5%;
     margin-bottom: 5%;
-    margin-left: 45px;
-    padding-left: 80px;
-    border: 1px solid;
+    margin-left: 60px;
+    padding-left: 10px;
     border-radius: 10px;
+    outline: none;
+    width: 230px;
+    height: 30px;
+    @include mq(pc) {
+      position: inherit;
+      margin-top: 2%;
+      margin-bottom: 2%;
+      margin-left: 685px;
+      padding-left: 10px;
+      border-radius: 10px;
+      outline: none;
+      width: 230px;
+      height: 40px;
+    }
   }
 
   &Button {
-    width: 40px;
-    padding-left: 6px;
+    position: relative;
+    margin-left: 15px;
     @include mq(pc) {
+      position: relative;
+      margin-top: -3px;
       width: 140px;
+      margin-left: 30px;
     }
     &Modal {
-      width: 120px;
-      border: 1px solid;
-      border-radius: 40px;
-      padding: 4px;
+      position: relative;
       margin-top: 0px;
       margin-bottom: 30px;
+      color: white;
+      margin-left: 135px;
+      @include mq(pc) {
+        position: relative;
+        margin-top: -3px;
+        width: 140px;
+        margin-left: 740px;
+      }
     }
   }
-
   &Title {
+    text-align: center;
     margin-top: 15px;
     font-size: 1rem;
-    display: block;
+    @include mq(pc) {
+      text-align: center;
+    }
   }
 }
