@@ -63,7 +63,7 @@ export default function Comics() {
       <input className={styles.indexInput} value={searchText} onChange={handleChange} />
       <Button
         className={styles.indexButton}
-        backgroundColor='white'
+        backgroundColor='gray.400'
         type='button'
         onClick={(e) => callSearch(e)}
       >
