@@ -5,11 +5,26 @@
 }
 
 .header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 100;
   &Tabs {
+    width: 0px;
     margin-left: 20px;
+    @include mq(pc) {
+      width: 100%;
+    }
   }
 }
-
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  @include mq(pc) {
+    width: 100%;
+  }
+}
 // .index {
 //   &Input {
 //     display: inline;

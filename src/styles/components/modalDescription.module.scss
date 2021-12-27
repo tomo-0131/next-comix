@@ -1,0 +1,40 @@
+@import '../var';
+
+.overlay {
+  /*　画面全体を覆う設定　*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 100%;
+  background-color: rgba(231, 231, 231, 0.5);
+  transition-duration: 1500ms;
+  transition-timing-function: ease-in-out;
+
+  /*　画面の中央に要素を表示させる設定　*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  // margin-top: 30px;
+}
+
+.content {
+  z-index: 2;
+  width: 80%;
+  padding: 1em;
+  background: #fff;
+  margin: 0 auto;
+  transition-duration: 1500ms;
+  transition-timing-function: ease-in-out;
+}
+.button {
+  text-align: center;
+  margin-left: 100px;
+  @include mq(pc) {
+    text-align: center;
+    justify-content: center;
+    margin-left: 580px;
+  }
+}
