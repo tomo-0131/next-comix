@@ -1,7 +1,21 @@
 import { Flex, Container, Heading, Stack, Text, Button, Icon, IconProps } from '@chakra-ui/react';
 import NextLink from 'next/link';
+import { useContext } from 'react';
+import { useAuthContext } from '../context/AuthContext';
+import { auth } from '../lib/firebase';
+import { useRouter } from 'next/router';
 
 export default function Home() {
+  const { currentUser } = useAuthContext();
+
+  const router = useRouter();
+
+  const logout = () => {
+    auth.signOut();
+    router.replace('/');
+    alert('ログアウト完了');
+  };
+
   return (
     <Container maxW={'5xl'}>
       <Stack
@@ -23,16 +37,31 @@ export default function Home() {
         <Text color={'gray.500'} maxW={'3xl'}>
           ComixはSNSライクな漫画検索Webアプリケーションです。サインインして気になる漫画を検索しましょう!!
         </Text>
+        {currentUser && <span>{currentUser.email} さん こんにちは!!</span>}
         <Stack spacing={6} direction={'row'}>
-          <Button
-            rounded={'full'}
-            px={6}
-            colorScheme={'orange'}
-            bg={'orange.400'}
-            _hover={{ bg: 'orange.500' }}
-          >
-            <NextLink href='/comics'>Get started</NextLink>
-          </Button>
+          {currentUser && (
+            <Button
+              onClick={logout}
+              rounded={'full'}
+              px={6}
+              colorScheme={'orange'}
+              bg={'teal.400'}
+              _hover={{ bg: 'orange.500' }}
+            >
+              <span>ログアウト</span>
+            </Button>
+          )}
+          {!currentUser && (
+            <Button
+              rounded={'full'}
+              px={6}
+              colorScheme={'orange'}
+              bg={'orange.400'}
+              _hover={{ bg: 'orange.500' }}
+            >
+              <NextLink href='signup'>GetStart</NextLink>
+            </Button>
+          )}
           <Button rounded={'full'} px={6}>
             Comixについて
           </Button>
