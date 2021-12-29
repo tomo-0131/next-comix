@@ -31,7 +31,7 @@ export default function Home() {
         >
           Comix <br />
           <Text as={'span'} color={'orange.400'}>
-            made your life Fun ⚡️
+            Make your life easier 👍
           </Text>
         </Heading>
         <Text color={'gray.500'} maxW={'3xl'}>
